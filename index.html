@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velmurugan Karuppiah - Wind Energy Professional</title>
+    <title>Velmurugan Karuppiah - Wind Energy Expert</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,12 +15,17 @@
         :root {
             --primary: #0f766e;
             --primary-light: #14b8a6;
+            --primary-dark: #0d5c56;
+            --accent: #06b6d4;
+            --accent-warm: #f97316;
             --dark: #0f172a;
             --light: #f8fafc;
-            --accent: #06b6d4;
             --text: #1e293b;
             --text-light: #64748b;
             --border: #e2e8f0;
+            --gradient-1: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+            --gradient-2: linear-gradient(135deg, #06b6d4 0%, #0f766e 100%);
+            --gradient-3: linear-gradient(180deg, rgba(15, 118, 110, 0.1) 0%, transparent 100%);
         }
 
         html {
@@ -27,10 +33,11 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             color: var(--text);
             line-height: 1.6;
             background: var(--light);
+            overflow-x: hidden;
         }
 
         /* Navigation */
@@ -38,14 +45,14 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(20px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         nav .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 1rem 2rem;
             display: flex;
@@ -54,50 +61,55 @@
         }
 
         nav .logo {
-            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
             font-weight: 700;
-            color: var(--accent);
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-decoration: none;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         nav a {
             color: #e2e8f0;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-size: 0.95rem;
+            position: relative;
         }
 
-        nav a:hover {
-            color: var(--accent);
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        @media (max-width: 768px) {
-            nav ul {
-                gap: 1rem;
-                font-size: 0.85rem;
-            }
-            nav .container {
-                padding: 1rem;
-            }
+        nav a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
         .hero {
             margin-top: 60px;
             min-height: calc(100vh - 60px);
-            background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
-            color: white;
-            display: flex;
-            align-items: center;
+            background: var(--gradient-1);
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
         }
 
         .hero::before {
@@ -107,71 +119,84 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(20, 184, 166, 0.1) 0%, transparent 50%);
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(20, 184, 166, 0.1) 0%, transparent 50%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800"><defs><pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="1440" height="800" fill="url(%23grid)"/></svg>');
             pointer-events: none;
         }
 
         .hero .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
             position: relative;
             z-index: 1;
-            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content {
+            animation: fadeInLeft 1s ease-out;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
             font-weight: 800;
+            color: white;
             margin-bottom: 1rem;
             line-height: 1.1;
+            letter-spacing: -1px;
         }
 
-        .hero-content .title {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.9);
+        .hero-content .subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.95);
             margin-bottom: 1.5rem;
             font-weight: 300;
+            letter-spacing: 1px;
         }
 
         .hero-content p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: rgba(255, 255, 255, 0.85);
-            max-width: 600px;
-            margin-bottom: 2rem;
+            max-width: 550px;
+            margin-bottom: 2.5rem;
             line-height: 1.8;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
         .btn {
-            padding: 0.9rem 2rem;
+            padding: 1rem 2.5rem;
             font-size: 1rem;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 0.5px;
         }
 
         .btn-primary {
             background: white;
             color: var(--primary);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
         .btn-secondary {
@@ -182,151 +207,185 @@
 
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
         }
 
-        .contact-info {
-            display: flex;
-            gap: 3rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
+        .hero-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
-        .info-item {
-            display: flex;
-            flex-direction: column;
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        .info-item label {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.7);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.3rem;
-        }
-
-        .info-item a, .info-item span {
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
             color: white;
-            text-decoration: none;
-            font-weight: 500;
+            font-family: 'Playfair Display', serif;
         }
 
-        .info-item a:hover {
-            text-decoration: underline;
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            .hero-content .title {
-                font-size: 1.2rem;
-            }
-            .cta-buttons {
-                flex-direction: column;
-            }
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-            .contact-info {
-                gap: 1.5rem;
-            }
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInRight 1s ease-out;
+            position: relative;
         }
 
-        /* Section */
+        .profile-photo {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 3 / 4;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .profile-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, transparent 100%);
+            z-index: 2;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-badge {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            background: white;
+            color: var(--primary);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            z-index: 3;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Base */
         section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
+            padding: 6rem 2rem;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+        section > h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
             color: var(--dark);
             position: relative;
             display: inline-block;
         }
 
+        section > .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
         section h2::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 0;
-            width: 60px;
+            width: 80px;
             height: 4px;
-            background: var(--accent);
+            background: var(--gradient-1);
             border-radius: 2px;
         }
 
         /* About Section */
         .about {
             background: white;
+            padding-top: 8rem;
         }
 
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            margin-top: 2rem;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-top: 3rem;
         }
 
         .about-text h3 {
-            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
             color: var(--primary);
-            margin: 1.5rem 0 1rem 0;
+            margin: 2rem 0 1.5rem 0;
+            font-weight: 700;
         }
 
         .about-text p {
             color: var(--text-light);
             margin-bottom: 1.5rem;
-            line-height: 1.8;
+            line-height: 1.9;
+            font-size: 1.05rem;
         }
 
-        .stats {
+        .about-highlights {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
             margin-top: 2rem;
         }
 
-        .stat {
-            text-align: center;
-            padding: 1.5rem;
+        .highlight-item {
             background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
-            border-radius: 8px;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
         }
 
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
+        .highlight-item strong {
             color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
         }
 
-        .stat-label {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
+        .highlight-item p {
+            font-size: 0.95rem;
+            margin: 0;
         }
 
-        @media (max-width: 768px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            .stats {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Experience Section */
+        /* Experience Timeline */
         .experience {
-            background: var(--light);
+            background: linear-gradient(to bottom, white, #f8fafc);
         }
 
         .timeline {
             position: relative;
-            padding-left: 2rem;
+            padding-left: 3rem;
+            margin-top: 3rem;
         }
 
         .timeline::before {
@@ -335,68 +394,203 @@
             left: 0;
             top: 0;
             bottom: 0;
-            width: 2px;
-            background: var(--accent);
+            width: 3px;
+            background: var(--gradient-1);
+            border-radius: 2px;
         }
 
         .job {
-            margin-bottom: 2.5rem;
-            padding: 1.5rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
             background: white;
-            border-radius: 8px;
+            border-radius: 12px;
             border-left: 4px solid var(--primary);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         .job:hover {
-            transform: translateX(10px);
-            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.1);
+            transform: translateX(15px);
+            box-shadow: 0 12px 24px rgba(15, 118, 110, 0.15);
         }
 
         .job-header {
             display: flex;
             justify-content: space-between;
             align-items: start;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             flex-wrap: wrap;
             gap: 1rem;
         }
 
         .job-title {
-            font-size: 1.3rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--dark);
         }
 
         .job-company {
             color: var(--primary);
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 1.05rem;
         }
 
         .job-period {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            background: #f0fdfa;
-            padding: 0.3rem 0.8rem;
+            color: white;
+            font-size: 0.85rem;
+            background: var(--gradient-1);
+            padding: 0.5rem 1rem;
             border-radius: 20px;
+            font-weight: 600;
         }
 
         .job-description {
             color: var(--text-light);
-            margin-top: 1rem;
-            line-height: 1.7;
+            margin: 1.5rem 0;
+            line-height: 1.8;
         }
 
         .job-highlights {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
 
         .highlight {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+            padding: 1rem;
+            border-radius: 8px;
             color: var(--primary);
-            font-weight: 500;
-            margin-top: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .highlight::before {
+            content: '→';
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        /* LiDAR Section */
+        .lidar {
+            background: linear-gradient(135deg, #f8fafc 0%, white 100%);
+            padding-top: 8rem;
+        }
+
+        .lidar-hero {
+            background: var(--gradient-2);
+            color: white;
+            padding: 4rem 3rem;
+            border-radius: 16px;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lidar-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .lidar-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .lidar-hero h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .lidar-hero p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 700px;
+            line-height: 1.8;
+        }
+
+        .lidar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .lidar-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--border);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .lidar-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(15, 118, 110, 0.15);
+        }
+
+        .lidar-card h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .lidar-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .lidar-bullet {
+            color: var(--text-light);
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .lidar-bullet::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .achievement-box {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            margin: 2rem 0;
+        }
+
+        .achievement-box strong {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .achievement-box p {
+            color: var(--text-light);
+            margin-top: 0.8rem;
+            line-height: 1.8;
         }
 
         /* Skills Section */
@@ -406,29 +600,31 @@
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
 
         .skill-card {
             background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
-            padding: 2rem;
-            border-radius: 8px;
+            padding: 2.5rem;
+            border-radius: 12px;
             border: 2px solid transparent;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .skill-card:hover {
             border-color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(15, 118, 110, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(15, 118, 110, 0.15);
         }
 
         .skill-card h3 {
             color: var(--primary);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
         }
 
         .skill-list {
@@ -437,118 +633,144 @@
 
         .skill-list li {
             color: var(--text-light);
-            padding: 0.5rem 0;
+            padding: 0.7rem 0;
             display: flex;
             align-items: center;
+            gap: 0.8rem;
+            font-weight: 500;
         }
 
         .skill-list li::before {
             content: '✓';
             color: var(--accent);
             font-weight: bold;
-            margin-right: 0.7rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
         /* Education Section */
         .education {
-            background: var(--light);
+            background: linear-gradient(to bottom, white, #f8fafc);
         }
 
         .education-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
 
         .education-card {
             background: white;
-            padding: 2rem;
-            border-radius: 8px;
+            padding: 2.5rem;
+            border-radius: 12px;
             border-left: 4px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .degree {
-            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--dark);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
         }
 
         .university {
             color: var(--primary);
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 1.05rem;
             margin-bottom: 0.5rem;
         }
 
         .education-period {
             color: var(--text-light);
             font-size: 0.9rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .education-details {
             color: var(--text-light);
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
-        /* Footer */
-        footer {
+        /* Contact Section */
+        .contact {
             background: var(--dark);
             color: white;
-            padding: 3rem 2rem;
             text-align: center;
+            padding: 6rem 2rem;
         }
 
-        footer .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .contact h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact h2::after {
+            background: var(--accent);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 2rem 0;
+            line-height: 1.8;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin-bottom: 2rem;
+            margin: 3rem 0;
             flex-wrap: wrap;
         }
 
         .social-links a {
-            color: var(--accent);
+            color: white;
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
+            font-weight: 700;
+            padding: 1rem 2rem;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
+            font-size: 1rem;
         }
 
         .social-links a:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0f1f;
             color: white;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         footer p {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.6);
         }
 
         /* Animations */
-        @keyframes fadeInUp {
+        @keyframes fadeInLeft {
             from {
                 opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
+                transform: translateX(-40px);
             }
             to {
                 opacity: 1;
@@ -556,21 +778,103 @@
             }
         }
 
-        section > * {
-            animation: slideIn 0.8s ease-out;
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        /* Print Styles */
-        @media print {
-            nav, footer, .cta-buttons {
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
                 display: none;
             }
-            body {
-                background: white;
-            }
+
             section {
-                page-break-inside: avoid;
-                padding: 2rem 0;
+                padding: 4rem 1.5rem;
+            }
+
+            section > h2 {
+                font-size: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .lidar-hero h3 {
+                font-size: 1.8rem;
+            }
+
+            .job-header {
+                flex-direction: column;
+            }
+
+            .job-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print */
+        @media print {
+            nav, .contact, footer {
+                display: none;
             }
         }
     </style>
@@ -583,8 +887,8 @@
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#lidar">LiDAR Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -595,27 +899,34 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Velmurugan Karuppiah</h1>
-                <p class="title">Wind Energy Professional | Development Consultant</p>
-                <p>With 12+ years of expertise in wind energy, I've successfully managed projects worth 1+ GW across multiple countries, specializing in wind resource assessment, procurement, and asset optimization.</p>
+                <p class="subtitle">Wind Energy Specialist</p>
+                <p>Leading the renewable energy revolution with 12+ years of expertise in wind resource assessment, turbine procurement, and innovative LiDAR-based performance optimization. Transforming wind farms across five continents.</p>
                 
                 <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#contact" class="btn btn-primary">Let's Connect</a>
                     <a href="https://www.linkedin.com/in/velmurugankaruppiah/" target="_blank" class="btn btn-secondary">View LinkedIn</a>
                 </div>
 
-                <div class="contact-info">
-                    <div class="info-item">
-                        <label>📞 Phone</label>
-                        <span>+91 9000500187</span>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">Years Experience</div>
                     </div>
-                    <div class="info-item">
-                        <label>✉️ Email</label>
-                        <a href="mailto:k.velmurugan77@gmail.com">k.velmurugan77@gmail.com</a>
+                    <div class="stat-item">
+                        <div class="stat-number">1+</div>
+                        <div class="stat-label">GW Managed</div>
                     </div>
-                    <div class="info-item">
-                        <label>📍 Location</label>
-                        <span>Tiruppur, Tamil Nadu, India</span>
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Countries</div>
                     </div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="profile-photo">
+                    <img src="photo.jpg" alt="Velmurugan Karuppiah">
+                    <div class="profile-badge">Wind Expert</div>
                 </div>
             </div>
         </div>
@@ -624,30 +935,46 @@
     <!-- About Section -->
     <section class="about" id="about">
         <h2>About Me</h2>
+        <p class="section-subtitle">Transforming Wind Energy Through Innovation & Expertise</p>
         <div class="about-content">
             <div class="about-text">
-                <h3>Professional Summary</h3>
-                <p>I'm a passionate wind energy professional with a proven track record in renewable energy development. My expertise spans from initial site assessment and wind resource evaluation to project procurement and long-term asset optimization.</p>
-                <p>Currently, I'm working as a Development Consultant at Blue Power Partners, managing WTG procurement for large-scale wind projects across Portugal and Japan. I excel at cross-functional collaboration, data analysis, and delivering results in complex, fast-paced environments.</p>
-                <h3>Key Strengths</h3>
-                <p>🌬️ Wind Resource Assessment & Analysis<br>
-                💼 Project Management & Procurement<br>
-                📊 Data Analysis & Technical Reporting<br>
-                🌍 International Project Exposure<br>
-                👥 Stakeholder Management</p>
+                <h3>Professional Excellence</h3>
+                <p>I'm a wind energy pioneer with deep expertise in renewable energy development. My career is defined by a relentless pursuit of innovation, delivering complex technical solutions, and driving measurable business impact across international markets.</p>
+                
+                <p>Currently leading development initiatives at Blue Power Partners, managing multi-GW turbine procurement for strategic projects in Europe and Asia. My background spans the entire wind energy value chain—from early-stage site assessment to operational optimization and performance enhancement.</p>
+
+                <h3>Core Expertise</h3>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <strong>🌬️ Wind Resource Assessment</strong>
+                        <p>Advanced WRA, measurement campaign design, data analysis using industry-leading tools (WAsP, WindPro)</p>
+                    </div>
+                    <div class="highlight-item">
+                        <strong>💼 Project Management</strong>
+                        <p>TSA/WTG procurement, due diligence, technical coordination, cross-functional stakeholder management</p>
+                    </div>
+                    <div class="highlight-item">
+                        <strong>🔬 Technical Innovation</strong>
+                        <p>LiDAR-based performance optimization, power curve testing (IEC 61400-12-1), SCADA analysis</p>
+                    </div>
+                    <div class="highlight-item">
+                        <strong>🌍 Global Experience</strong>
+                        <p>Successful project execution across India, Portugal, Japan, Thailand, and multiple European markets</p>
+                    </div>
+                </div>
             </div>
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-number">12+</div>
-                    <div class="stat-label">Years Experience</div>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div class="achievement-box">
+                    <strong>🏆 Career Highlights</strong>
+                    <p>Best Employee of the Year (2013, 2014) | Outperformer of the Year 2018 | Led India's first nacelle-mounted LiDAR campaign | Pioneered LiDAR technology in Southeast Asia</p>
                 </div>
-                <div class="stat">
-                    <div class="stat-number">1+</div>
-                    <div class="stat-label">GW Projects</div>
+                <div class="achievement-box">
+                    <strong>📈 Portfolio Management</strong>
+                    <p>Successfully managed 1+ GW of wind projects from development to operational phase, with expertise in portfolio optimization and performance enhancement across diverse geographies.</p>
                 </div>
-                <div class="stat">
-                    <div class="stat-number">5+</div>
-                    <div class="stat-label">Countries</div>
+                <div class="achievement-box">
+                    <strong>⚡ Technical Certifications</strong>
+                    <p>DNV-GL Certified in Power Performance Testing | Avenum LiDAR Certified | IEC 61400-1 & 12-1 Expertise | Vestas Siting Universe & Load Check Certified</p>
                 </div>
             </div>
         </div>
@@ -656,6 +983,7 @@
     <!-- Experience Section -->
     <section class="experience" id="experience">
         <h2>Professional Experience</h2>
+        <p class="section-subtitle">12+ Years of Excellence in Wind Energy</p>
         <div class="timeline">
             <div class="job">
                 <div class="job-header">
@@ -666,13 +994,13 @@
                     <span class="job-period">May 2020 - Present</span>
                 </div>
                 <div class="job-description">
-                    Managing WTG procurement, TSA activities, and wind resource assessment for multiple large-scale wind projects across Europe and Asia.
+                    Leading strategic development initiatives and managing large-scale turbine procurement across multiple continents. Driving technical excellence and project delivery for portfolio companies.
                 </div>
                 <div class="job-highlights">
-                    <strong>Key Achievements:</strong>
-                    <div class="highlight">✓ Managing WTG procurement for 800 MW + 200 MW portfolios (Portugal & Japan)</div>
-                    <div class="highlight">✓ Led due diligence on 800 MW early-stage development portfolio</div>
-                    <div class="highlight">✓ Coordinated independent EYA for multiple projects</div>
+                    <div class="highlight">Managing 800 MW Portugal + 200 MW Japan WTG procurement</div>
+                    <div class="highlight">Led due diligence on 800 MW early-stage portfolio</div>
+                    <div class="highlight">Coordinating independent EYA for multiple projects</div>
+                    <div class="highlight">Technical coordination with international consultants & OEMs</div>
                 </div>
             </div>
 
@@ -685,13 +1013,13 @@
                     <span class="job-period">Jan 2018 - May 2020</span>
                 </div>
                 <div class="job-description">
-                    Led wind resource assessment, measurement campaigns, and energy yield assessment for development projects across Asia.
+                    Led comprehensive wind resource assessment and energy yield analysis for major development projects across Asia, establishing new technical standards.
                 </div>
                 <div class="job-highlights">
-                    <strong>Key Achievements:</strong>
-                    <div class="highlight">✓ Set up pipeline for 500 MW in renewable capacity</div>
-                    <div class="highlight">✓ Outperformer of the Year 2018 - Solution Engineering team</div>
-                    <div class="highlight">✓ Managed measurement campaigns and TSA contracts</div>
+                    <div class="highlight">Pipeline establishment for 500 MW renewable capacity</div>
+                    <div class="highlight">Outperformer of the Year 2018 - Solution Engineering team</div>
+                    <div class="highlight">Measurement campaign design & management across Asia</div>
+                    <div class="highlight">Technical TSA coordination & customer interaction</div>
                 </div>
             </div>
 
@@ -704,13 +1032,13 @@
                     <span class="job-period">Aug 2016 - Jan 2018</span>
                 </div>
                 <div class="job-description">
-                    Optimized wind farm performance through technical analysis, remedial actions, and implementation of after-market boosters.
+                    Optimized wind farm performance and implemented remedial actions for large operational portfolios, achieving significant AEP improvements.
                 </div>
                 <div class="job-highlights">
-                    <strong>Key Achievements:</strong>
-                    <div class="highlight">✓ Asset optimization for 2+ GW wind farms</div>
-                    <div class="highlight">✓ Managed refurbishment projects (400+ MW)</div>
-                    <div class="highlight">✓ Life extension assessment across 5 projects</div>
+                    <div class="highlight">Asset optimization for 2+ GW operational wind farms</div>
+                    <div class="highlight">Refurbishment project management (400+ MW)</div>
+                    <div class="highlight">Life extension assessment across 5 projects</div>
+                    <div class="highlight">Advanced SCADA analysis & performance monitoring</div>
                 </div>
             </div>
 
@@ -723,84 +1051,146 @@
                     <span class="job-period">Aug 2015 - Jul 2016</span>
                 </div>
                 <div class="job-description">
-                    Managed end-to-end project development from site screening to energy yield estimation and power curve testing.
+                    Managed end-to-end project development from early-stage site screening through bankable feasibility assessment and turbine selection.
                 </div>
                 <div class="job-highlights">
-                    <strong>Key Achievements:</strong>
-                    <div class="highlight">✓ Established 1 GW project portfolio</div>
-                    <div class="highlight">✓ Met mast installation and wind data analysis</div>
-                    <div class="highlight">✓ IEC 61400-12-1 power curve testing expertise</div>
-                </div>
-            </div>
-
-            <div class="job">
-                <div class="job-header">
-                    <div>
-                        <div class="job-title">Project Engineer</div>
-                        <div class="job-company">MeteoPole</div>
-                    </div>
-                    <span class="job-period">May 2013 - Jul 2015</span>
-                </div>
-                <div class="job-description">
-                    Pioneered LiDAR-based wind measurement campaigns and managed team operations across India and Southeast Asia.
-                </div>
-                <div class="job-highlights">
-                    <strong>Key Achievements:</strong>
-                    <div class="highlight">✓ Implemented India's first nacelle-mounted LiDAR campaign</div>
-                    <div class="highlight">✓ Designed Thailand's first ground-based LiDAR measurement campaign</div>
-                    <div class="highlight">✓ Best Employee of the Year 2013 & 2014</div>
+                    <div class="highlight">Established 1 GW development portfolio</div>
+                    <div class="highlight">Pre-feasibility studies & site prospection management</div>
+                    <div class="highlight">Met mast installation & wind data analysis</div>
+                    <div class="highlight">IEC 61400-12-1 power curve testing implementation</div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- LiDAR Section -->
+    <section class="lidar" id="lidar">
+        <h2>Nacelle-Mounted LiDAR Innovation</h2>
+        <p class="section-subtitle">Pioneering Advanced Performance Optimization Technology</p>
+
+        <div class="lidar-hero">
+            <div class="lidar-hero-content">
+                <h3>India's First Nacelle-Mounted LiDAR Campaign</h3>
+                <p>Led the implementation of India's groundbreaking nacelle-mounted LiDAR project, establishing new technical standards for wind farm performance optimization and yaw error correction in the region.</p>
+            </div>
+        </div>
+
+        <div class="lidar-grid">
+            <div class="lidar-card">
+                <h4>🌬️ Technology Overview</h4>
+                <p>Advanced LiDAR measurement system deployed on wind turbine nacelles to detect yaw misalignment and optimize turbine performance in real-time.</p>
+                <div class="lidar-bullet">Wind Iris shoots horizontal laser pulses up to 440m ahead</div>
+                <div class="lidar-bullet">Horizontal wind speed retrieval at 10 distances (40m intervals)</div>
+                <div class="lidar-bullet">Real-time data processing for immediate yaw correction</div>
+                <div class="lidar-bullet">Feed-forward control for operational load reduction</div>
+            </div>
+
+            <div class="lidar-card">
+                <h4>⚙️ Key Problem Solved</h4>
+                <p>Yaw misalignment is a major culprit for poor power performance in modern wind turbines, caused by wear, mechanical issues, or controller changes.</p>
+                <div class="lidar-bullet">Yaw error reduces energy capture through rotor area</div>
+                <div class="lidar-bullet">Increases torsional loads on turbine structure</div>
+                <div class="lidar-bullet">Impact: 2-5% annual energy production loss per degree of misalignment</div>
+                <div class="lidar-bullet">Solution: Automated correction via LiDAR-based monitoring</div>
+            </div>
+
+            <div class="lidar-card">
+                <h4>🎯 Project Execution</h4>
+                <p>Comprehensive implementation at Surajbari wind farm managing 20 Vestas turbines (34.5 MW total).</p>
+                <div class="lidar-bullet">Site: Surajbari Wind Farm, India (Continuum Wind Energy)</div>
+                <div class="lidar-bullet">Turbines: 10× Vestas V82 1.65MW + 10× Vestas V100 1.8MW</div>
+                <div class="lidar-bullet">Installation: 6-hour process per nacelle with 3 certified personnel</div>
+                <div class="lidar-bullet">Measurement Duration: 15-day intensive data collection campaign</div>
+            </div>
+
+            <div class="lidar-card">
+                <h4>📊 Critical Installation Steps</h4>
+                <p>Precise technical execution ensuring accurate performance data capture.</p>
+                <div class="lidar-bullet">Desktop study to identify 3 least-performing turbines</div>
+                <div class="lidar-bullet">Optical head placement & processing unit configuration</div>
+                <div class="lidar-bullet">Parallel axis alignment method (±2.5% accuracy required)</div>
+                <div class="lidar-bullet">Tilt measurement accounting for tower deflection (-1.21°)</div>
+            </div>
+
+            <div class="lidar-card">
+                <h4>🏆 Results & Impact</h4>
+                <p>Exceptional performance improvement through precision yaw error correction.</p>
+                <div class="lidar-bullet">Measured Yaw Error: -7.55° (with IC95 confidence: 0.28)</div>
+                <div class="lidar-bullet">AEP Improvement: ~2.4% after yaw correction</div>
+                <div class="lidar-bullet">Annual Revenue Gain: €2,247+ per turbine (Andhra Pradesh)</div>
+                <div class="lidar-bullet">Revenue Impact: €5.2M+ annually across 2,123 Indian turbines</div>
+            </div>
+
+            <div class="lidar-card">
+                <h4>🔐 Industry Certifications</h4>
+                <p>Wind Iris system meets the highest international safety and performance standards.</p>
+                <div class="lidar-bullet">Laser Classification: Class 1 (Eye Safety - IEC 60825-1)</div>
+                <div class="lidar-bullet">Housing: IP65 (optical head), IP64 (processing unit)</div>
+                <div class="lidar-bullet">Environmental: IEC 60068-2 (shocks & vibrations)</div>
+                <div class="lidar-bullet">EMC & Safety: IEC 61326-1, IEC 61000-4, IEC 60010-1</div>
+            </div>
+        </div>
+
+        <div class="achievement-box">
+            <strong>💡 Market Opportunity</strong>
+            <p><strong>Transformative Potential:</strong> Analysis of 2,123 Indian wind turbines (2.48 GW capacity) shows correcting yaw errors would generate €5.2 million+ in additional annual revenue. This demonstrates the massive untapped potential of LiDAR-based optimization across India's 21+ GW installed capacity, representing a multi-million euro opportunity for the wind energy sector.</p>
+        </div>
+
+        <div class="achievement-box">
+            <strong>🌟 Innovation Leadership</strong>
+            <p><strong>First-Mover Advantage:</strong> As the lead engineer on India's inaugural nacelle-mounted LiDAR project, I established the technical foundation and best practices for this transformative technology in the Indian wind market. This pioneering work has positioned me as a recognized expert in advanced performance optimization methodologies.</p>
+        </div>
+    </section>
+
     <!-- Skills Section -->
     <section class="skills" id="skills">
-        <h2>Skills & Expertise</h2>
+        <h2>Technical Skills & Expertise</h2>
+        <p class="section-subtitle">Comprehensive Wind Energy Technical Capabilities</p>
         <div class="skills-grid">
             <div class="skill-card">
-                <h3>Wind Energy Expertise</h3>
+                <h3>Wind Energy Core</h3>
                 <ul class="skill-list">
                     <li>Wind Resource Assessment (WRA)</li>
                     <li>Energy Yield Assessment (EYA)</li>
                     <li>Power Curve Testing (IEC 61400-12-1)</li>
-                    <li>Wind Flow Modelling</li>
+                    <li>Wind Flow Modelling & CFD</li>
                     <li>SCADA Data Analysis</li>
-                    <li>Turbine Suitability Analysis</li>
+                    <li>Measurement Campaign Design</li>
                 </ul>
             </div>
 
             <div class="skill-card">
-                <h3>Project Management</h3>
+                <h3>Project Delivery</h3>
                 <ul class="skill-list">
                     <li>TSA Procurement & Management</li>
-                    <li>WTG Procurement</li>
-                    <li>Due Diligence Activities</li>
-                    <li>Measurement Campaigns</li>
-                    <li>Contract Negotiation</li>
-                    <li>Stakeholder Coordination</li>
+                    <li>WTG Procurement Strategy</li>
+                    <li>Due Diligence & Site Assessment</li>
+                    <li>Turbine Suitability Analysis</li>
+                    <li>Performance Monitoring</li>
+                    <li>Risk Management</li>
                 </ul>
             </div>
 
             <div class="skill-card">
-                <h3>Technical Tools</h3>
+                <h3>Software & Tools</h3>
                 <ul class="skill-list">
-                    <li>WAsP & WindPro</li>
-                    <li>Windographer</li>
+                    <li>WAsP & WindPro Modeling</li>
+                    <li>Windographer Analysis</li>
                     <li>ZephyTOOLS (CFD)</li>
                     <li>MATLAB & Python</li>
-                    <li>GlobalMapper</li>
-                    <li>LiDAR Systems</li>
+                    <li>GlobalMapper GIS</li>
+                    <li>LiDAR Systems & Software</li>
                 </ul>
             </div>
 
             <div class="skill-card">
-                <h3>Standards & Certifications</h3>
+                <h3>Standards & Certification</h3>
                 <ul class="skill-list">
-                    <li>IEC 61400-1 & IEC 61400-12-1</li>
+                    <li>IEC 61400-1 Standard</li>
+                    <li>IEC 61400-12-1 (ed 1&2)</li>
                     <li>Measnet Procedure</li>
-                    <li>DNV-GL Certified (Power Performance)</li>
-                    <li>Avenum LiDAR Certification</li>
+                    <li>DNV-GL Certified</li>
+                    <li>Avenum LiDAR Certified</li>
                     <li>Vestas Siting Universe</li>
                 </ul>
             </div>
@@ -809,7 +1199,8 @@
 
     <!-- Education Section -->
     <section class="education" id="education">
-        <h2>Education</h2>
+        <h2>Education & Certifications</h2>
+        <p class="section-subtitle">Advanced Qualifications in Wind Energy & Engineering</p>
         <div class="education-grid">
             <div class="education-card">
                 <div class="degree">Post Graduate Diploma in Wind Resource Assessment</div>
@@ -817,7 +1208,7 @@
                 <div class="education-period">August 2011 - May 2012</div>
                 <div class="education-details">
                     <strong>CGPA: 6.47/10</strong>
-                    <p>Specialized coursework in Wind Resource Assessment, Wind Farm Operations, Aerodynamics, and CFD.</p>
+                    <p style="margin-top: 1rem;">Specialized postgraduate curriculum covering advanced wind resource assessment methodologies, wind farm operations, aerodynamics, and computational fluid dynamics with industry experts.</p>
                 </div>
             </div>
 
@@ -827,30 +1218,40 @@
                 <div class="education-period">September 2007 - June 2011</div>
                 <div class="education-details">
                     <strong>Aggregate: 75.08%</strong>
-                    <p>Core coursework in Manufacturing Technology, Structural Mechanics, Heat & Mass Transfer, and Fluid Dynamics.</p>
+                    <p style="margin-top: 1rem;">Comprehensive engineering education in manufacturing, mechanics, thermodynamics, and fluid dynamics, providing the foundation for renewable energy expertise.</p>
+                </div>
+            </div>
+
+            <div class="education-card">
+                <div class="degree">Professional Certifications</div>
+                <div class="university">Industry Leaders</div>
+                <div class="education-period">2012 - 2024</div>
+                <div class="education-details">
+                    <p>DNV-GL Power Performance Testing | Avenum LiDAR Systems | IEC 61400-12-1 (ed 1&2) | Vestas Siting Universe | Business Communication (British Council)</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact" style="background: var(--dark); color: white; text-align: center;">
-        <h2 style="color: white;">Let's Connect</h2>
-        <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.8); margin-top: 1.5rem;">I'm actively looking for new opportunities in the wind energy sector. Feel free to reach out!</p>
+    <section class="contact" id="contact">
+        <h2>Let's Create Impact Together</h2>
+        <p>I'm actively seeking opportunities to lead transformative wind energy projects. Connect with me to discuss how my expertise can drive value for your organization.</p>
         
-        <div class="social-links" style="margin-top: 2rem;">
+        <div class="social-links">
             <a href="mailto:k.velmurugan77@gmail.com">✉️ Email Me</a>
-            <a href="https://www.linkedin.com/in/velmurugankaruppiah/" target="_blank">🔗 LinkedIn</a>
-            <a href="tel:+919000500187">📞 Call Me</a>
+            <a href="https://www.linkedin.com/in/velmurugankaruppiah/" target="_blank">🔗 LinkedIn Profile</a>
+            <a href="tel:+919000500187">📞 +91 9000500187</a>
         </div>
+
+        <p style="margin-top: 2rem; font-size: 0.95rem; color: rgba(255, 255, 255, 0.7);">
+            📍 Tiruppur, Tamil Nadu, India | Available for International Opportunities
+        </p>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Velmurugan Karuppiah. All rights reserved.</p>
-            <p style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.6);">Powered by HTML5 & CSS3</p>
-        </div>
+        <p>&copy; 2025 Velmurugan Karuppiah. All rights reserved.</p>
     </footer>
 
 </body>
