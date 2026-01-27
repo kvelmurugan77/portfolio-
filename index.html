@@ -105,7 +105,7 @@
         .hero {
             margin-top: 60px;
             min-height: calc(100vh - 60px);
-            background: var(--gradient-1);
+            background: url('bg-hero.png') center/cover no-repeat;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -119,10 +119,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(20, 184, 166, 0.1) 0%, transparent 50%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800"><defs><pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="1440" height="800" fill="url(%23grid)"/></svg>');
+            background: linear-gradient(135deg, rgba(15, 118, 110, 0.75) 0%, rgba(20, 184, 166, 0.65) 100%);
             pointer-events: none;
         }
 
@@ -1140,6 +1137,109 @@
             <strong>🌟 Innovation Leadership</strong>
             <p><strong>First-Mover Advantage:</strong> As the lead engineer on India's inaugural nacelle-mounted LiDAR project, I established the technical foundation and best practices for this transformative technology in the Indian wind market. This pioneering work has positioned me as a recognized expert in advanced performance optimization methodologies.</p>
         </div>
+
+        <hr style="border: none; height: 2px; background: linear-gradient(to right, transparent, #0f766e, transparent); margin: 4rem 0; opacity: 0.5;">
+
+        <!-- Thailand Ground-Based LiDAR Section -->
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--dark); margin: 3rem 0 1rem 0; font-weight: 700;">Thailand's First Ground-Based LiDAR Wind Measurement Campaign</h3>
+        <p style="color: var(--text-light); font-size: 1.05rem; margin-bottom: 2rem; line-height: 1.8;">Pioneered advanced ground-based LiDAR deployment across complex terrain in Thailand, establishing new benchmarks for wind measurement accuracy and project bankability in Southeast Asia's challenging wind environments.</p>
+
+        <div class="lidar-grid">
+            <div class="lidar-card">
+                <h4>🌍 Project Overview</h4>
+                <p>Thailand's first comprehensive ground-based LiDAR measurement campaign for a 64 MW wind farm in undulating, complex terrain with challenging wind patterns.</p>
+                <div class="lidar-bullet">Location: Central Thailand (undulating terrain, complex roughness)</div>
+                <div class="lidar-bullet">Project Scale: 64 MW wind farm with 8 km turbine spacing</div>
+                <div class="lidar-bullet">Hub Height: 120m (swept diameter 110m)</div>
+                <div class="lidar-bullet">Existing Infrastructure: 3 met masts at 85m height</div>
+            </div>
+
+            <div class="lidar-card">
+                <h4>⚙️ WINDCUBE v2 Technology</h4>
+                <p>Advanced LiDAR system with Flow Complexity Recognition (FCR) for accurate measurements in complex terrains achieving IEC-class 1 accuracy.</p>
+                <div class="lidar-bullet">5-beam configuration (4 inclined @ 30°, 1 vertical)</div>
+                <div class="lidar-bullet">Programmable heights: 40m to 200m (12 measurement levels)</div>
+                <div class="lidar-bullet">FCR Technology: Online correction for complex terrain disturbances</div>
+                <div class="lidar-bullet">Horizontal & vertical wind component measurement capability</div>
+            </div>
+
+            <div class="lidar-card">
+                <h4>🎯 Core Objectives</h4>
+                <p>Reduce measurement uncertainties and improve project bankability through strategic LiDAR deployment across multiple locations.</p>
+                <div class="lidar-bullet">Eliminate vertical extrapolation uncertainty (85m → 120m)</div>
+                <div class="lidar-bullet">Reduce horizontal extrapolation across complex terrain</div>
+                <div class="lidar-bullet">Assess wind shear & turbulence across rotor diameter</div>
+                <div class="lidar-bullet">Validate met mast measurements with hub height data</div>
+            </div>
+
+            <div class="lidar-card">
+                <h4>📍 Optimal Measurement Location Strategy</h4>
+                <p>CFD analysis identified 4 strategic LiDAR deployment locations optimized for terrain complexity and wind characteristics.</p>
+                <div class="lidar-bullet">3 locations co-located with existing met masts</div>
+                <div class="lidar-bullet">1 additional strategic location identified by MeteoPole</div>
+                <div class="lidar-bullet">Validation criteria: Synoptic/measured direction agreement</div>
+                <div class="lidar-bullet">CFD simulation using industry-standard ZephyCFD code</div>
+            </div>
+
+            <div class="lidar-card">
+                <h4>📊 Seasonal Sampling Strategy</h4>
+                <p>Innovative sampling design addressing seasonal wind variations across the site, ensuring representative annual data capture.</p>
+                <div class="lidar-bullet">Sep-Jan: All 4 locations (high seasonal variation period)</div>
+                <div class="lidar-bullet">Feb-Aug: Even distribution across locations (stable wind period)</div>
+                <div class="lidar-bullet">Mobile deployment on trailer for rapid location shifting</div>
+                <div class="lidar-bullet">Daily monitoring with monthly client reporting</div>
+            </div>
+
+            <div class="lidar-card">
+                <h4>🏆 Key Findings & Impact</h4>
+                <p>Significant reduction in measurement uncertainty and improved AEP prediction accuracy through multi-height LiDAR data.</p>
+                <div class="lidar-bullet">Hub height extrapolation uncertainty: 2.4% → 0% (eliminated)</div>
+                <div class="lidar-bullet">Total WS uncertainty reduction: 6.48% → 5.59%</div>
+                <div class="lidar-bullet">Total AEP uncertainty: 14.87% → 13.19%</div>
+                <div class="lidar-bullet">P90/P50 probability ratio: 0.809 → 0.831 (improved bankability)</div>
+            </div>
+
+            <div class="lidar-card">
+                <h4>📈 Critical Data Insights</h4>
+                <p>Comprehensive analysis revealed terrain-induced wind shear variations and the importance of rotor-averaged measurements.</p>
+                <div class="lidar-bullet">Hub height met mast vertical profiles vary significantly by location</div>
+                <div class="lidar-bullet">Mean wind speed difference (hub vs rotor-averaged): 0.12 m/s</div>
+                <div class="lidar-bullet">Atmospheric boundary layer disturbance from complex roughness</div>
+                <div class="lidar-bullet">Kinetic power variation: Higher shear reduces available energy</div>
+            </div>
+
+            <div class="lidar-card">
+                <h4>🔬 Measurement Validation</h4>
+                <p>Rigorous data validation against co-located met mast measurements ensuring data quality and integrity throughout campaign.</p>
+                <div class="lidar-bullet">LiDAR vs met mast wind speed comparison at hub height</div>
+                <div class="lidar-bullet">Rotor-averaged vs hub height wind profile analysis</div>
+                <div class="lidar-bullet">Vertical shear uncertainty quantification across rotor swept area</div>
+                <div class="lidar-bullet">Recommended use of rotor-averaged wind speeds for AEP calculation</div>
+            </div>
+
+            <div class="lidar-card">
+                <h4>💡 Industry Impact</h4>
+                <p>Demonstrated necessity of LiDAR measurements for modern wind farms with growing hub heights and larger rotor diameters.</p>
+                <div class="lidar-bullet">Essential for reducing measurement uncertainty in complex terrain</div>
+                <div class="lidar-bullet">Enables accurate assessment of wind shear & turbulence intensity</div>
+                <div class="lidar-bullet">Improves project bankability & investor confidence</div>
+                <div class="lidar-bullet">Establishes best practices for Southeast Asian markets</div>
+            </div>
+
+            <div class="lidar-card">
+                <h4>🚀 Technical Achievement</h4>
+                <p>First successful ground-based LiDAR implementation in Thailand, setting new regional standards for wind resource assessment methodology.</p>
+                <div class="lidar-bullet">Pioneered WINDCUBE v2 deployment in Southeast Asia</div>
+                <div class="lidar-bullet">Developed seasonal sampling strategy for tropical wind patterns</div>
+                <div class="lidar-bullet">Integrated CFD analysis with field measurements</div>
+                <div class="lidar-bullet">Established regional expertise in complex terrain assessment</div>
+            </div>
+        </div>
+
+        <div class="achievement-box">
+            <strong>🌟 Regional Innovation Leadership</strong>
+            <p><strong>Thailand Pioneer:</strong> As the lead LiDAR engineering consultant, I designed and executed Thailand's inaugural ground-based LiDAR measurement campaign, establishing the technical foundation for advanced wind resource assessment in Southeast Asia. This work demonstrates my capability to innovate across diverse geographical and meteorological conditions, applying cutting-edge measurement technologies to solve complex real-world wind energy challenges.</p>
+        </div>
     </section>
 
     <!-- Skills Section -->
@@ -1239,7 +1339,7 @@
         <p>I'm actively seeking opportunities to lead transformative wind energy projects. Connect with me to discuss how my expertise can drive value for your organization.</p>
         
         <div class="social-links">
-            <a href="mailto:k.velmurugan77@gmail.com">✉️ Email Me</a>
+            <a href="/cdn-cgi/l/email-protection#3a51144c5f56574f484f5d5b540d0d7a5d575b535614595557">✉️ Email Me</a>
             <a href="https://www.linkedin.com/in/velmurugankaruppiah/" target="_blank">🔗 LinkedIn Profile</a>
             <a href="tel:+919000500187">📞 +91 9000500187</a>
         </div>
@@ -1251,8 +1351,4 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Velmurugan Karuppiah. All rights reserved.</p>
-    </footer>
-
-</body>
-</html>
+        <p>&copy; 2025 Velmurugan Karuppiah. All right
